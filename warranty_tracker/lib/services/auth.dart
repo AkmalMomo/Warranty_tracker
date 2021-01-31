@@ -51,4 +51,14 @@ class AuthService {
       return null;
     }
   }
+
+  //Get user id
+  Future userIdget() async {
+    try {
+      return await _auth.currentUser().toString();
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
+  }
 }
