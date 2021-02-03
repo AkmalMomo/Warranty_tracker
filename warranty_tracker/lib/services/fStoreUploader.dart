@@ -16,11 +16,9 @@ class FStoreUploader extends StatelessWidget {
       this.uid});
   AuthService _authService = AuthService();
 
-  final CollectionReference imageData =
-      Firestore.instance.collection('WarrantyTracker');
-
   //Upload to firestore
   void addImagetoFirestore() async {
+    final CollectionReference imageData = Firestore.instance.collection(uid);
     //create a filepath
     dynamic url = await FirebaseStorage.instance
         .ref()

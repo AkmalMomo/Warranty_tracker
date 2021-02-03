@@ -116,12 +116,14 @@ class _UploadingState extends State<Uploading> {
                       child: Column(
                         children: <Widget>[
                           TextFormField(
+                            maxLength: 20,
                             validator: (val) =>
                                 val.isEmpty ? 'Enter Product Name' : null,
                             onChanged: (val) => setState(() => text = val),
                             decoration: InputDecoration(
-                              labelText: 'Product Name',
-                            ),
+                                labelText: 'Product Name',
+                                counterText: "",
+                                hintText: 'Please enter less than 20 char'),
                           ),
                           GestureDetector(
                             onTap: () => _selectDate(context),
