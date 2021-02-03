@@ -7,6 +7,7 @@ class Picture {
   final String url;
   final String category;
   final String info;
+  final String uid;
   final Timestamp createdAt;
 
   Picture(
@@ -16,5 +17,6 @@ class Picture {
       this.url,
       this.category,
       this.info,
+      this.uid,
       this.createdAt});
 }

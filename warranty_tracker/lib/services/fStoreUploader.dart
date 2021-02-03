@@ -5,20 +5,26 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:warranty_tracker/services/auth.dart';
 
 class FStoreUploader extends StatelessWidget {
-  String filename, name, date, info;
+  String filename, name, date, info, uid;
   int category;
   FStoreUploader(
-      {this.filename, this.name, this.date, this.category, this.info});
-  final CollectionReference imageData = Firestore.instance.collection('images');
+      {this.filename,
+      this.name,
+      this.date,
+      this.category,
+      this.info,
+      this.uid});
   AuthService _authService = AuthService();
+
+  final CollectionReference imageData =
+      Firestore.instance.collection('WarrantyTracker');
 
   //Upload to firestore
   void addImagetoFirestore() async {
-    String test = _authService.userIdget().toString();
     //create a filepath
     dynamic url = await FirebaseStorage.instance
         .ref()
-        .child('notimage')
+        .child('images')
         .child(filename)
         .getDownloadURL();
     print('this is the' + url.toString());
@@ -31,6 +37,7 @@ class FStoreUploader extends StatelessWidget {
       'date': date,
       'category': category,
       'info': info,
+      'uid': uid,
       'createdAt': DateTime.now()
     });
   }

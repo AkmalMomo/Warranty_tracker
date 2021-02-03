@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:warranty_tracker/services/auth.dart';
@@ -17,21 +18,25 @@ class Uploader extends StatefulWidget {
 }
 
 class _UploaderState extends State<Uploader> {
-  AuthService _authService = AuthService();
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
   final FirebaseStorage _storage =
       FirebaseStorage(storageBucket: 'gs://warrantytrack.appspot.com/');
   String filename;
+  String uid;
   StorageUploadTask _uploadTask;
 
   /// Starts an upload task
-  void _startUpload() {
+  void _startUpload() async {
+    final FirebaseUser user = await auth.currentUser();
+
     /// Unique file name for the file
     filename = DateTime.now().toString();
-    String test = _authService.userIdget().toString();
 
     setState(() {
+      uid = user.uid;
       _uploadTask =
-          _storage.ref().child('notimage/' + filename).putFile(widget.file);
+          _storage.ref().child('images/' + filename).putFile(widget.file);
     });
   }
 
@@ -47,7 +52,6 @@ class _UploaderState extends State<Uploader> {
             double progressPercent = event != null
                 ? event.bytesTransferred / event.totalByteCount
                 : 0;
-
             return Column(
               children: [
                 //upload to firestore
@@ -57,8 +61,8 @@ class _UploaderState extends State<Uploader> {
                       name: widget.name,
                       date: widget.date,
                       category: widget.category,
+                      uid: uid,
                       info: widget.info),
-
                 if (_uploadTask.isPaused)
                   FlatButton(
                     child: Icon(Icons.play_arrow),

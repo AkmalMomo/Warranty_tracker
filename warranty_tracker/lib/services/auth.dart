@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:warranty_tracker/model/user.dart';
+import 'package:warranty_tracker/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
   // create user obj based on firebase user
   User _userFromFirebaseUser(FirebaseUser user) {
     return user != null ? User(uid: user.uid) : null;
@@ -35,6 +35,7 @@ class AuthService {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
+      await DatabaseService(uid: user.uid).updateUserData('test');
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());
@@ -46,16 +47,6 @@ class AuthService {
   Future signOut() async {
     try {
       return await _auth.signOut();
-    } catch (error) {
-      print(error.toString());
-      return null;
-    }
-  }
-
-  //Get user id
-  Future userIdget() async {
-    try {
-      return await _auth.currentUser().toString();
     } catch (error) {
       print(error.toString());
       return null;
