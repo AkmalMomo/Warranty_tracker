@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:warranty_tracker/services/auth.dart';
+import 'package:warranty_tracker/uipage/categorypage/categorypage.dart';
 import 'package:warranty_tracker/uipage/warrantypage.dart';
 import 'package:warranty_tracker/uipage/warrantypick.dart';
 
@@ -96,9 +97,7 @@ class _HomepageState extends State<Homepage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => WarrantyPage(
-                                  uid: passUid,
-                                )));
+                            builder: (context) => CategoryPage()));
                   },
                 ),
               ),
