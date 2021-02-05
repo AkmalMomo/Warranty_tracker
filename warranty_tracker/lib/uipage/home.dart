@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:warranty_tracker/services/auth.dart';
-import 'package:warranty_tracker/uipage/categorypage/categorypage.dart';
+import 'package:warranty_tracker/uipage/categorypage/categoryselect.dart';
 import 'package:warranty_tracker/uipage/warrantypage.dart';
 import 'package:warranty_tracker/uipage/warrantypick.dart';
 
@@ -60,11 +60,13 @@ class _HomepageState extends State<Homepage> {
                     FirebaseUser user = await auth.currentUser();
                     passUid = user.uid;
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => WarrantyPage(
-                                  uid: passUid,
-                                )));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WarrantyPage(
+                          uid: passUid,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
@@ -95,9 +97,13 @@ class _HomepageState extends State<Homepage> {
                     FirebaseUser user = await auth.currentUser();
                     passUid = user.uid;
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CategoryPage()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CategorySelect(
+                          uid: passUid,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),

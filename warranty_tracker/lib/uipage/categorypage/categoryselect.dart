@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:warranty_tracker/model/picture.dart';
+import 'package:warranty_tracker/uipage/categorypage/catdisppage.dart';
+import 'package:warranty_tracker/uipage/categorypage/categorylist.dart';
 
-class CategoryPage extends StatelessWidget {
+class CategorySelect extends StatelessWidget {
+  String uid;
+  int cat1 = 1;
+  int cat2 = 2;
+  int cat3 = 3;
+  int cat4 = 4;
+  CategorySelect({this.uid});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
-        title: Text('Select Category'),
+        title: Text(
+          'Select Category',
+          style: TextStyle(color: Colors.black),
+        ),
         elevation: 0.0,
         backgroundColor: Colors.grey[400],
       ),
@@ -32,8 +42,17 @@ class CategoryPage extends StatelessWidget {
                     width: 5,
                     style: BorderStyle.solid,
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     //call the category.
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CatDispPage(
+                          catindex: cat1,
+                          uid: uid,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
@@ -56,8 +75,17 @@ class CategoryPage extends StatelessWidget {
                     width: 5,
                     style: BorderStyle.solid,
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     //call the category.
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CatDispPage(
+                          catindex: cat2,
+                          uid: uid,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
@@ -80,8 +108,17 @@ class CategoryPage extends StatelessWidget {
                     width: 5,
                     style: BorderStyle.solid,
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     //call the category.
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CatDispPage(
+                          catindex: cat3,
+                          uid: uid,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
@@ -104,8 +141,17 @@ class CategoryPage extends StatelessWidget {
                     width: 5,
                     style: BorderStyle.solid,
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     //call the category.
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CatDispPage(
+                          catindex: cat4,
+                          uid: uid,
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
