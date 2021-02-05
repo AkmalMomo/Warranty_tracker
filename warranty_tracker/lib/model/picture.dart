@@ -5,7 +5,7 @@ class Picture {
   final String name;
   final String date;
   final String url;
-  final String category;
+  final int category;
   final String info;
   final String uid;
   final Timestamp createdAt;

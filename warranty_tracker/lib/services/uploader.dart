@@ -21,7 +21,7 @@ class _UploaderState extends State<Uploader> {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   final FirebaseStorage _storage =
-      FirebaseStorage(storageBucket: 'gs://warrantytrack.appspot.com/');
+      FirebaseStorage(storageBucket: 'gs://warrantytrack.appspot.com');
   String filename;
   String uid;
   StorageUploadTask _uploadTask;
