@@ -66,25 +66,28 @@ class _UploadingState extends State<Uploading> {
               style: TextStyle(color: Colors.black),
             ),
           ),
-          bottomNavigationBar: BottomAppBar(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                FlatButton.icon(
-                  onPressed: () {
-                    getCamera();
-                  },
-                  icon: Icon(Icons.camera_alt),
-                  label: Text('Camera'),
-                ),
-                FlatButton.icon(
-                  onPressed: () {
-                    getImage();
-                  },
-                  icon: Icon(Icons.image),
-                  label: Text('Gallery'),
-                ),
-              ],
+          bottomNavigationBar: Container(
+            margin: const EdgeInsets.only(bottom: 50),
+            child: BottomAppBar(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  FlatButton.icon(
+                    onPressed: () {
+                      getCamera();
+                    },
+                    icon: Icon(Icons.camera_alt),
+                    label: Text('Camera'),
+                  ),
+                  FlatButton.icon(
+                    onPressed: () {
+                      getImage();
+                    },
+                    icon: Icon(Icons.image),
+                    label: Text('Gallery'),
+                  ),
+                ],
+              ),
             ),
           ),
           body: ListView(
