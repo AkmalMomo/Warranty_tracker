@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:warranty_tracker/services/auth.dart';
 
 class FStoreUploader extends StatelessWidget {
   String filename, name, date, info, uid;
@@ -14,7 +12,6 @@ class FStoreUploader extends StatelessWidget {
       this.category,
       this.info,
       this.uid});
-  AuthService _authService = AuthService();
 
   //Upload to firestore
   void addImagetoFirestore() async {

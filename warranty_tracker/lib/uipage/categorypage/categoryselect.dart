@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:warranty_tracker/uipage/categorypage/catdisppage.dart';
-import 'package:warranty_tracker/uipage/categorypage/categorylist.dart';
 
 class CategorySelect extends StatelessWidget {
   String uid;

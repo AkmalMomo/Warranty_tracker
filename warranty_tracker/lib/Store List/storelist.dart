@@ -19,8 +19,13 @@ class StoreList extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: 200,
+              height: 50,
             ),
+            Container(
+                height: 300,
+                width: 300,
+                child: Image.network(
+                    'https://pngimg.com/uploads/ghost/ghost_PNG81.png')),
             Text(
               "Coming Soon",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),

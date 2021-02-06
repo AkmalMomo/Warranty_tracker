@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:warranty_tracker/model/picture.dart';
-import 'package:intl/intl.dart';
 import 'package:warranty_tracker/uipage/home.dart';
 
 class DetailPage extends StatefulWidget {
