@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "251742138351",
+    "firebase_url": "https://warrantytrack-default-rtdb.firebaseio.com",
     "project_id": "warrantytrack",
     "storage_bucket": "warrantytrack.appspot.com"
   },
@@ -32,8 +33,37 @@
             }
           ]
         }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251742138351:android:7715793eff72743fd1501a",
+        "android_client_info": {
+          "package_name": "com.warranty.warranty_house"
+        }
       },
-      "admob_app_id":"ca-app-pub-7346780172090626~4801287384"
+      "oauth_client": [
+        {
+          "client_id": "251742138351-87g2pjd806tjkpp6rcd8eotlds2h7tpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-lrubZhPpJO4fTalJqQuBs-dQycu-09w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251742138351-87g2pjd806tjkpp6rcd8eotlds2h7tpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id":"ca-app-pub-7346780172090626~7554269770"
     }
   ],
   "configuration_version": "1"
