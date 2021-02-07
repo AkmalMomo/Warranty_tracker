@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:warranty_tracker/services/auth.dart';
 import 'package:warranty_tracker/model/user.dart';
-import 'package:warranty_tracker/uipage/wrapper.dart';
+import 'package:warranty_tracker/uipage/signin.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return StreamProvider<User>.value(
       value: AuthService().user,
       child: MaterialApp(
-        home: Wrapper(),
+        home: SignIn(),
       ),
     );
   }

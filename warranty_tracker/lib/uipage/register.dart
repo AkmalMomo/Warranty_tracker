@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warranty_tracker/services/auth.dart';
 import 'package:warranty_tracker/shared/loading.dart';
+import 'package:warranty_tracker/uipage/home.dart';
 import 'package:warranty_tracker/uipage/signin.dart';
 
 class Register extends StatefulWidget {
@@ -108,12 +109,18 @@ class _RegisterState extends State<Register> {
                           setState(() => loading = false);
                           dynamic result = await _auth
                               .registerWithEmailAndPassword(email, password);
-
+                          print(result);
                           if (result == null) {
                             setState(() {
                               error = 'Please supply valid email';
                               loading = false;
                             });
+                          } else {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Homepage()));
                           }
                         }
                       },

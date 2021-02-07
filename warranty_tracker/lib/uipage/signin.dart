@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warranty_tracker/services/auth.dart';
 import 'package:warranty_tracker/shared/loading.dart';
+import 'package:warranty_tracker/uipage/home.dart';
 import 'package:warranty_tracker/uipage/register.dart';
 
 class SignIn extends StatefulWidget {
@@ -104,14 +105,20 @@ class _SignInState extends State<SignIn> {
                       ),
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
-                          setState(() => loading = true);
                           dynamic result = await _auth
                               .signInWithEmailAndPassword(email, password);
+                          print(result);
                           if (result == null) {
                             setState(() {
                               error = 'Invalid Credentials';
                               loading = false;
                             });
+                          } else {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Homepage()));
                           }
                         }
                       },

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:warranty_tracker/Store%20List/storelist.dart';
 import 'package:warranty_tracker/services/auth.dart';
 import 'package:warranty_tracker/uipage/categorypage/categoryselect.dart';
+import 'package:warranty_tracker/uipage/signin.dart';
 import 'package:warranty_tracker/uipage/warrantypage.dart';
 import 'package:warranty_tracker/uipage/warrantypick.dart';
 
@@ -55,6 +56,9 @@ class _HomepageState extends State<Homepage> {
             label: Text('Logout'),
             onPressed: () async {
               await _auth.signOut();
+              Navigator.pop(context);
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => SignIn()));
             },
           )
         ],
